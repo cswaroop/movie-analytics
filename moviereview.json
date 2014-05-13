@@ -1,0 +1,42 @@
+{
+  "version" : "1.0",
+  "input_type" : "csv",
+  "csv_style": { "delimiter": "," , "n_columns_datafile": 7, "ignore_first_line": false},
+
+  
+  "key": {"column_position":3, "type": "string"},
+
+
+  
+  "binlist": [  
+	{"name": "productId",
+     	"value": {"column_position":1 , "type" : "string"}
+    	},
+	
+	{"name": "userId",
+        "value": {"column_position":2 , "type" : "string"}
+        },
+
+	{"name": "profName",
+        "value": {"column_position":4 , "type" : "string"}
+        },
+
+
+	{"name": "write_time",
+    	"value": "time"
+    	}
+    	
+	{"name": "helpfullness",
+     	"value": {"column_position": 5,"type" : "integer"}
+    	},
+    
+	{"name": "rating",
+     	"value": {"column_position":6, "type" : "integer"}
+    	}
+	
+	{"name": "review_time",
+     	"value": {"column_position": 7, "type" : "integer"}
+    	}
+  ]
+
+}

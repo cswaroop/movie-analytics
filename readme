@@ -1,0 +1,16 @@
+To load slowly:
+java -jar aerospike-load-1.0-jar-with-dependencies.jar  -wt 1 -rt 1 -l 1 -c moviereview.json moviedata.csv -s demo
+
+To run default:
+java -jar aerospike-load-1.0-jar-with-dependencies.jar  -c moviereview.json moviedata.csv -s demo
+
+* Use -h, -p....usual options
+
+
+java -jar aerospike-load-1.0-jar-with-dependencies.jar  -wt 1 -rt 1 -l 1 -c moviereview.json moviedata.csv -s demo
+./aql -o json
+set lua_userpath '.'
+register module 'movies.lua'
+aggregate movies.hit_movie() on test.demo where write_time between 1399016315 and 1399016315
+python most_reviewed.py 10
+python late.py
