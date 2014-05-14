@@ -7,10 +7,27 @@ java -jar aerospike-load-1.0-jar-with-dependencies.jar  -c moviereview.json movi
 * Use -h, -p....usual options
 
 
+To run quickly- 
+1. ./run_all.sh
+2. Relax and enjoy!!
+
+Manual Steps : 
+
+1. Create index on write_time
+aql -c "create index ind on test.demo (write_time) numeric"
+
+2. Load data slowly in aerospike
 java -jar aerospike-load-1.0-jar-with-dependencies.jar  -wt 1 -rt 1 -l 1 -c moviereview.json moviedata.csv -s demo
-./aql -o json
-set lua_userpath '.'
-register module 'movies.lua'
-aggregate movies.hit_movie() on test.demo where write_time between 1399016315 and 1399016315
+
+3. Run aggregation
+aql -o json
+set lua_userpath 'lua_files'
+register module 'lua_files/movies.lua'
+aggregate movies.hit_movie() on test.demo where write_time between <current epoch time - 10> and <current epoch time + 10>
+exit
+
+4. Run the python script to get analytics in past X seconds. 
+python most_reviewed.py X
+
+for e.g - 
 python most_reviewed.py 10
-python late.py
