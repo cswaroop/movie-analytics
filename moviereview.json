@@ -21,10 +21,9 @@
         "value": {"column_position":4 , "type" : "string"}
         },
 
-
 	{"name": "write_time",
-    	"value": "time"
-    	}
+	"value": {"column_name": "System_time", "type" : "timestamp", "encoding":"MM/dd/yy HH:mm:ss", "dst_type": "integer"}
+	}
     	
 	{"name": "helpfullness",
      	"value": {"column_position": 5,"type" : "integer"}
