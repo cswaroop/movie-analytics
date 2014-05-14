@@ -30,7 +30,7 @@ def make_parseable(contents):
 def run_aql_command(cmd, node_id=1):
 	host = "127.0.0.1"
 	port = 3000
-	args = ("aql", "-h", str(host), "-p", str(port), "-o", "json", "-c", cmd )
+	args = ("./aql", "-h", str(host), "-p", str(port), "-o", "json", "-c", cmd )
 	popen = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	# cannot use popen.wait() because of a possibility of a deadlock
 	(output, errput) = popen.communicate()
