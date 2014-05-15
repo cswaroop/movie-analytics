@@ -26,6 +26,10 @@ To load the data using [Aerospike Loader](https://github.com/aerospike/aerospike
 
 ###Steps to run analytics:
 
+####Prerequisites:
+- Aerospike server running
+- Aerospike tools installed
+
 ####To run quickly: 
     ./run_all.sh
 
