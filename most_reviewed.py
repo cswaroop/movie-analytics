@@ -75,13 +75,16 @@ def main():
 			str1 = k['hit_movie']
 	max = 0;
 	result_str = "None"
+	if not str1:
+		print "No data found"
+		return
 	for k,v in str1.iteritems():
 		v = int(v)
 		if max < v:
 			max = v
 			result_str = k
 	movie_name = result_str
-	print "Trending movie " + result_str + ". It got reviewed " + str(max) + " number of times."
+	print "Trending movie " + result_str + " in last "+ str(end_time-start_time)+" seconds. It got reviewed " + str(max) + " number of times."
 #############################################################################################
 	# avg rating
 	text_file = open("/tmp/sql.txt", "w")
@@ -99,6 +102,10 @@ def main():
 	for r in result['json']:
 		for k in r:
 			str1 = k['avg_rating']
+	if not str1:
+		print "No data found"
+		return
+	
 	print "avg rating during this time " + str(str1)
 
 ##############################################################################################
@@ -121,6 +128,10 @@ def main():
 			str1 = k['active_user']
 	max = 0;
 	result_str = "None"
+	if not str1:
+		print "No data found"
+		return
+	
 	if str1:
 		for k, v in str1.iteritems():
 			v = int(v)
@@ -128,6 +139,6 @@ def main():
 				max = v
 				result_str = k
 	
-	print "User " + result_str + " submitted review " + str(max) + " number of times."
+	print "Most active user during this time was " + result_str + " who submitted review " + str(max) + " number of times."
 
 main()
