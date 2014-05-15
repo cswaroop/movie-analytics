@@ -55,6 +55,9 @@ def run_aql_command(cmd, node_id=1):
 def main():
 	end_time   = int(time.time())
 	start_time = end_time - int(sys.argv[1])
+	print "Current date & time " + time.strftime("%c")
+	print "From_time:" + str(start_time)
+	print "To_time:" + str(end_time)
 
 # hit movie
 	text_file = open("/tmp/sql.txt", "w")
